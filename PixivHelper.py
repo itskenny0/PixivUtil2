@@ -1019,7 +1019,7 @@ def get_start_and_end_date():
 
 
 def get_start_and_end_number(start_only=False, np_is_valid=False, np=0):
-    page_num = input('Start Page (default=1): ').rstrip("\r") or 1
+    page_num = 1
     try:
         page_num = int(page_num)
     except BaseException:
@@ -1033,7 +1033,7 @@ def get_start_and_end_number(start_only=False, np_is_valid=False, np=0):
         end_page_num = _config.numberOfPage
 
     if not start_only:
-        end_page_num = input('End Page (default=' + str(end_page_num) + ', 0 for no limit): ').rstrip("\r") or end_page_num
+        end_page_num = end_page_num
         if end_page_num is not None:
             try:
                 end_page_num = int(end_page_num)

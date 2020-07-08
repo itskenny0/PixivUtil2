@@ -533,6 +533,7 @@ def header():
 def get_start_and_end_number_from_args(args, offset=0, start_only=False):
     global np_is_valid
     global np
+
     page_num = 1
     if len(args) > 0 + offset:
         try:
@@ -840,7 +841,7 @@ def menu_download_from_online_user_bookmark(opisvalid, args):
                 return
             (start_page, end_page) = get_start_and_end_number_from_args(args, offset=1)
     else:
-        arg = input("Include Private bookmarks [y/n/o]: ").rstrip("\r") or 'n'
+        arg = 'n'
         arg = arg.lower()
         if arg == 'y' or arg == 'n' or arg == 'o':
             hide = arg
@@ -873,12 +874,12 @@ def menu_download_from_online_image_bookmark(opisvalid, args):
                 print("Invalid sorting order: ", sorting)
                 return
     else:
-        hide = input("Include Private bookmarks [y/n/o]: ").rstrip("\r") or 'n'
+        hide = 'y'
         hide = hide.lower()
         if hide not in ('y', 'n', 'o'):
             print("Invalid args: ", hide)
             return
-        tag = input("Tag (press enter for all images): ").rstrip("\r") or ''
+        tag = ''
         (start_page, end_page) = PixivHelper.get_start_and_end_number(np_is_valid=np_is_valid, np=np)
         # sorting = input("Sort Order [asc/desc/date/date_d]: ").rstrip("\r") or 'desc'
         # sorting = sorting.lower()
